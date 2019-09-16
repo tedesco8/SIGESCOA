@@ -1,6 +1,9 @@
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
+import express from 'express';
+// const express = require('express');
+import morgan from 'morgan';
+// const morgan = require('morgan');
+import cors from 'cors';
+// const cors = require('cors');
 const app = express();
 
 //muestra peticiones http en la consola
