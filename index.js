@@ -1,10 +1,33 @@
 import express from 'express';
-// const express = require('express');
 import morgan from 'morgan';
-// const morgan = require('morgan');
 import cors from 'cors';
-// const cors = require('cors');
 import path from 'path';
+const Sequelize = require('sequelize');
+
+//conexion a la bd
+const db = new Sequelize('dbsigesco', 'root', 'Xxx8090235pp*', {
+    host: 'localhost',
+    dialect: 'mysql',
+    port: '3306',
+    operatorAliases: false,
+    define: {
+        timestamps: false
+    },
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  });
+
+  db.authenticate()
+  .then(() => {
+    console.log('Conectado')
+  })
+  .catch(err => {
+    console.log('No se conecto')
+  })
 
 const app = express();
 
