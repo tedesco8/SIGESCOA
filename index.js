@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import mongoose from 'mongoose';
+import router from './routes/';
 
 mongoose.Promise = global.Promise;
 const dbUrl = 'mongodb+srv://root:xxx8090235pp@cluster0-kzisw.gcp.mongodb.net/test?retryWrites=true&w=majority'
@@ -23,6 +24,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 //configurando direccion de archivos estaticos publicos
 app.use(express.static(path.join(__dirname, 'public')));
+
+//rutas
+app.use('/api', router);
 
 //asigno puerto por defecto del sistema, o en su defecto el puerto 3000
 app.set('port', process.env.PORT || 3000);
