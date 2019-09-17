@@ -26,9 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //asigno puerto por defecto del sistema, o en su defecto el puerto 3000
 app.set('port', process.env.PORT || 3000);
-app.get('/hola', function(req, res) {
-    res.send('Hola Mundo');
-});
+
 app.listen(app.get('port'), () => {
     console.log('server on port ' + app.get('port'));
 });
