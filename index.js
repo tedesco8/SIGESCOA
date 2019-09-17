@@ -2,32 +2,13 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
-const Sequelize = require('sequelize');
+import mongoose from 'mongoose';
 
-//conexion a la bd
-const db = new Sequelize('dbsigesco', 'root', 'Xxx8090235pp*', {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: '3306',
-    operatorAliases: false,
-    define: {
-        timestamps: false
-    },
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    }
-  });
-
-  db.authenticate()
-  .then(() => {
-    console.log('Conectado')
-  })
-  .catch(err => {
-    console.log('No se conecto')
-  })
+mongoose.Promise = global.Promise;
+const dbUrl = 'mongodb+srv://root:xxx8090235pp@cluster0-kzisw.gcp.mongodb.net/test?retryWrites=true&w=majority'
+mongoose.connect(dbUrl, {useCreateIndex:true, useNewUrlParser: true})
+.then(mongoose => console.log('Conectado a la base de datos'))
+.catch(err => console.log(err));
 
 const app = express();
 
@@ -45,6 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //asigno puerto por defecto del sistema, o en su defecto el puerto 3000
 app.set('port', process.env.PORT || 3000);
+app.get('/hola', function(req, res) {
+    res.send('Hola Mundo');
+});
 app.listen(app.get('port'), () => {
     console.log('server on port ' + app.get('port'));
 });
