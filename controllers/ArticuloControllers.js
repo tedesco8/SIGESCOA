@@ -35,10 +35,10 @@ export default {
         try {
             let valor=req.query.valor;
             //RegExp funciona como Like en SQL
-            const reg = await models.Articulo.find({$or:[{'nombre':new RegExp(valor,'i')},{'descripcion':new RegExp(valor,'i')}]},{createAt:0})
-            .populate('categoria', {nombre:1})
+            const reg=await models.Articulo.find({$or:[{'nombre':new RegExp(valor,'i')},{'descripcion':new RegExp(valor,'i')}]},{createdAt:0})
+            .populate('categoria',{nombre:1})
             //sort es un metodo de ordenamiento, ordena por fecha de creacion
-            .sort({'createAt':-1});
+            .sort({'createdAt':-1});
             res.status(200).json(reg);
         } catch(e){
             res.status(500).send({

@@ -1,6 +1,6 @@
 import routerx from 'express-promise-router';
 import categoriaRouter from './categoria';
-import articuloRouter from './categoria';
+import articuloRouter from './articulo';
 
 const router = routerx();
 
