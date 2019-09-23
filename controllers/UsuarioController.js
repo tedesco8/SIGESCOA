@@ -94,5 +94,29 @@ export default {
             });
             next(e);
         }
+    },
+    login: async (req, res, next) => {
+        try {
+            let user = await models.Usuario.findOne({email:req.body.email});
+            if (user){
+                let match = await bcrypt.compare(req.body.password,user.password);
+                if (match){
+                    res.json('Password correcto');
+                } else {
+                    res.status(404).send({
+                        message: 'Password Incorrecto'
+                    });
+                }
+            } else {
+                res.status(404).send({
+                    message: 'No existe el usuario'
+                });
+            }
+        } catch (e) {
+            res.status(500).send({
+                message: 'Ocurrió un error'
+            });
+            next(e);
+        }
     }
 }
