@@ -1,5 +1,6 @@
 import models from '../models';
 import bcrypt from 'bcryptjs';
+import token from '../services/token';
 
 export default {
     add: async (req, res, next) => {
@@ -97,11 +98,12 @@ export default {
     },
     login: async (req, res, next) => {
         try {
-            let user = await models.Usuario.findOne({email:req.body.email});
+            let user = await models.Usuario.findOne({email:req.body.email, estado:1});
             if (user){
                 let match = await bcrypt.compare(req.body.password,user.password);
                 if (match){
-                    res.json('Password correcto');
+                    let tokenReturn = await token.encode(user._id);
+                    res.status(200).json({user, tokenReturn});
                 } else {
                     res.status(404).send({
                         message: 'Password Incorrecto'
