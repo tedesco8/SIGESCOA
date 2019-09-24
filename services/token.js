@@ -30,7 +30,7 @@ export default {
     //decodifica el token
     decode:async (token) => {
         try {
-            const {_id} =await jwt.verify(token, 'clavesecretatoken');
+            const {_id} = await jwt.verify(token, 'clavesecretatoken');
             const user = await models.Usuario.findOne({_id,estado:1});
             if (user){
                 return user
