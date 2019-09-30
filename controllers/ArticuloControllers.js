@@ -50,9 +50,9 @@ export default {
     list: async (req,res,next) => {
         try {
             let valor=req.query.valor;
-            const reg=await models.Articulo.find({$or:[{'nombre':new RegExp(valor,'i')},{'descripcion':new RegExp(valor,'i')}]},{createdAt:0})
+            const reg=await models.Articulo.find({$or:[{'nombre':new RegExp(valor,'i')},{'descripcion':new RegExp(valor,'i')}]},{createAt:0})
             .populate('categoria',{nombre:1})
-            .sort({'createdAt':-1});
+            .sort({'createAt':-1});
             res.status(200).json(reg);
         } catch(e){
             res.status(500).send({

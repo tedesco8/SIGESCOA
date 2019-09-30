@@ -32,5 +32,5 @@ const ventaSchema = new Schema({
     estado: { type:Number, default:1},
     createdAt: { type: Date, default: Date.now }
 });
-const Venta = mongoose.model('ingreso',ventaSchema);
+const Venta = mongoose.model('venta',ventaSchema);
 export default Venta;
