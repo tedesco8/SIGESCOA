@@ -54,7 +54,7 @@ export default {
             if (pas!=reg0.password){
                 req.body.password = await bcrypt.hash(req.body.password,10);
             }
-            const reg = await models.Usuario.findByIdAndUpdate({_id:req.body._id},{rol:req.body.rol,nombre:req.body.nombre,tipo_documento:req.body.tipo_documento,num_documento:req.body.num_documento, direccion:req.body.direccion,telefono:req.body.telefono,email:req.body.email,password:req.body.password});
+            const reg = await models.Usuario.findByIdAndUpdate({_id:req.body._id},{rol:req.body.rol,nombre:req.body.nombre,tipo_documento:req.body.tipo_documento, num_documento:req.body.num_documento, direccion:req.body.direccion,telefono:req.body.telefono,email:req.body.email,password:req.body.password});
             res.status(200).json(reg);
         } catch(e){
             res.status(500).send({
