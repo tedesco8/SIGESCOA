@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //rutas
 app.use('/api', router);
 
-//asigno puerto por defecto del sistema, o en su defecto el puerto 3000
+//asigno puerto por defecto del sistema, o en su defecto el puerto 4000
 app.set('port', process.env.PORT || process.env.PORT_DEF);
 
 app.listen(app.get('port'), () => {
