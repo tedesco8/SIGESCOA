@@ -6,6 +6,7 @@ const usuarioSchema = new Schema ({
     tipo_documento: { type:String, maxlength:20 },
     num_documento: { type:String, maxlength:20 },
     direccion: { type:String, maxlength:70},
+    telefono: {type:Number, maxlength: 20},
     email: { type:String, maxlength:50, unique:true, required:true },
     password: { type:String, maxlength:64, required:true },
     estado: { type:Number, default :1 },

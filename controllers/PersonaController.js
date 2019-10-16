@@ -76,7 +76,16 @@ export default {
     },
     update: async (req, res, next) => {
         try {
-            const reg = await models.Persona.findByIdAndUpdate({_id:req.body._id},{tipo_persona:req.body.tipo_persona,nombre:req.body.nombre,tipo_documento:req.body.tipo_documento,num_documento:req.body.num_documento, direccion:req.body.direccion,telefono:req.body.telefono,email:req.body.email});
+            const reg = await models.Persona.findByIdAndUpdate({_id:req.body._id},
+                {
+                    tipo_persona:req.body.tipo_persona,
+                    nombre:req.body.nombre,
+                    tipo_documento:req.body.tipo_documento,
+                    num_documento:req.body.num_documento,
+                    direccion:req.body.direccion,
+                    telefono:req.body.telefono,
+                    email:req.body.email
+                });
             res.status(200).json(reg);
         } catch(e){
             res.status(500).send({
