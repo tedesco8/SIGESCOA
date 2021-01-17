@@ -77,30 +77,32 @@ export default {
       next(e);
     }
   },
-  /*
-    update: async (req,res,next) => {
-        try {
-            const reg = await models.Categoria.findByIdAndUpdate({_id:req.body._id},{nombre:req.body.nombre,descripcion:req.body.descripcion});
-            res.status(200).json(reg);
-        } catch(e){
-            res.status(500).send({
-                message:'Ocurrió un error'
-            });
-            next(e);
-        }
-    },
-    remove: async (req,res,next) => {
-        try {
-            const reg = await models.Categoria.findByIdAndDelete({_id:req.body._id});
-            res.status(200).json(reg);
-        } catch(e){
-            res.status(500).send({
-                message:'Ocurrió un error'
-            });
-            next(e);
-        }
-    },
-    */
+  update: async (req, res, next) => {
+    try {
+      const reg = await models.Venta.findByIdAndUpdate(
+        { _id: req.body._id }, req.body
+      );
+      res.status(200).json(reg);
+    } catch (e) {
+      res.status(500).send({
+        message: "Ocurrió un error",
+      });
+      next(e);
+    }
+  },
+  remove: async (req, res, next) => {
+    try {
+      const reg = await models.Venta.findByIdAndDelete({
+        _id: req.body._id,
+      });
+      res.status(200).json(reg);
+    } catch (e) {
+      res.status(500).send({
+        message: "Ocurrió un error",
+      });
+      next(e);
+    }
+  },
   activate: async (req, res, next) => {
     try {
       const reg = await models.Venta.findByIdAndUpdate(
