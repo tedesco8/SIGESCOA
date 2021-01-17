@@ -20,6 +20,7 @@ app.use(cors());
 //permito que el servidor reciba peticiones JSON a traves de post
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
 //configurando direccion de archivos estaticos publicos
 app.use(express.static(path.join(__dirname, 'public')));
 
