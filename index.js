@@ -2,15 +2,12 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
-import mongoose from 'mongoose';
 import router from './routes/';
+import database from './config/database'
 import {} from 'dotenv/config';
 
-mongoose.Promise = global.Promise;
-const dbUrl = `mongodb+srv://${process.env.USR_DB}:${process.env.PSW_DB}@cluster0-kzisw.gcp.mongodb.net/test?retryWrites=true&w=majority`
-mongoose.connect(dbUrl, {useCreateIndex:true, useNewUrlParser: true, useUnifiedTopology: true})
-.then(mongoose => console.log('Conectado a la base de datos'))
-.catch(err => console.log(err));
+
+database.connectDatabase();
 
 const app = express(); 
 
