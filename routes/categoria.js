@@ -5,8 +5,8 @@ import auth from '../middlewares/auth';
 const router = routerx();
 
 router.post('/add', auth.verifyAlmacenero,categoriaController.add);
-router.get('/query', auth.verifyAlmacenero,categoriaController.query);
-router.get('/list', auth.verifyAlmacenero,categoriaController.list);
+router.get('/query', auth.verifyUsuario,categoriaController.query);
+router.get('/list', auth.verifyUsuario,categoriaController.list);
 router.put('/update', auth.verifyAlmacenero,categoriaController.update);
 router.delete('/remove', auth.verifyAlmacenero,categoriaController.remove);
 router.put('/activate', auth.verifyAlmacenero,categoriaController.activate);
