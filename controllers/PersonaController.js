@@ -1,6 +1,6 @@
-import models from "../models";
+const models = require("../models");
 
-export default {
+module.exports = {
   add: async (req, res, next) => {
     try {
       const reg = await models.Persona.create(req.body);

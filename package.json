@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js --exec",
-    "dev": "nodemon index.js --exec babel-node"
+    "start": "node index.js --exec",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,6 @@
   },
   "homepage": "https://github.com/tedesco8/SIGESCOA#readme",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "cross-env": "^5.2.1",
@@ -29,8 +26,9 @@
     "express": "^4.17.1",
     "express-promise-router": "^3.0.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.1",
-    "morgan": "^1.9.1"
+    "mongoose": "^5.11.12",
+    "morgan": "^1.9.1",
+    "saslprep": "^1.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"

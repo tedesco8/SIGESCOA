@@ -1,11 +1,11 @@
-import Categoria from './categoria';
-import Articulo from './articulo';
-import Usuario from './usuario';
-import Persona from './persona';
-import Ingreso from './ingreso';
-import Venta from './venta';
+const Categoria = require('./categoria');
+const Articulo = require('./articulo');
+const Usuario = require('./usuario');
+const Persona = require('./persona');
+const Ingreso = require('./ingreso');
+const Venta = require('./venta');
 
-export default {
+module.exports = {
     Categoria,
     Articulo,
     Usuario,

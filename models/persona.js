@@ -1,4 +1,5 @@
-import mongoose, {Schema} from 'mongoose';
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const personaSchema = new Schema ({
     tipo_persona: { type:String, maxlength:20, required:true },
@@ -13,4 +14,4 @@ const personaSchema = new Schema ({
 });
 
 const Persona = mongoose.model('persona', personaSchema);
-export default Persona;
+module.exports = Persona;

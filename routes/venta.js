@@ -1,6 +1,6 @@
-import routerx from 'express-promise-router';
-import ventaController from '../controllers/VentaController';
-import auth from '../middlewares/auth';
+const routerx = require('express-promise-router');
+const ventaController = require('../controllers/VentaController');
+const auth = require('../middlewares/auth');
 
 const router=routerx();
 
@@ -14,4 +14,4 @@ router.delete('/remove',auth.verifyVendedor,ventaController.remove);
 router.put('/activate',auth.verifyVendedor,ventaController.activate);
 router.put('/deactivate',auth.verifyVendedor,ventaController.deactivate);
 
-export default router;
+module.exports = router;

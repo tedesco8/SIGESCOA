@@ -1,5 +1,5 @@
-import tokenService from "../services/token";
-export default {
+const tokenService = require("../services/token");
+module.exports = {
   verifyUsuario: async (req, res, next) => {
     if (!req.headers.token) {
       return res.status(404).send({

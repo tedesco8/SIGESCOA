@@ -1,4 +1,6 @@
-import mongoose,{Schema} from 'mongoose';
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
+
 const ingresoSchema = new Schema({
     usuario:{type: Schema.ObjectId, ref: 'usuario',required:true },
     persona:{ type: Schema.ObjectId, ref: 'persona',required:true },
@@ -29,4 +31,4 @@ const ingresoSchema = new Schema({
     createdAt: { type: Date, default: Date.now }
 });
 const Ingreso = mongoose.model('ingreso',ingresoSchema);
-export default Ingreso;
+module.exports = Ingreso;

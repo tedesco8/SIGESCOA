@@ -1,10 +1,10 @@
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
-import path from 'path';
-import router from './routes/';
-import database from './config/database'
-import {} from 'dotenv/config';
+const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
+const path = require('path');
+const router = require('./routes/');
+const database = require('./config/database')
+require("dotenv").config();
 
 
 database.connectDatabase();

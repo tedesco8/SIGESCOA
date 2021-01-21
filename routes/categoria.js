@@ -1,6 +1,6 @@
-import routerx from 'express-promise-router';
-import categoriaController from '../controllers/CategoriaController';
-import auth from '../middlewares/auth';
+const routerx = require('express-promise-router');
+const categoriaController = require('../controllers/CategoriaController');
+const auth = require('../middlewares/auth');
 
 const router = routerx();
 
@@ -12,4 +12,4 @@ router.delete('/remove', auth.verifyAlmacenero,categoriaController.remove);
 router.put('/activate', auth.verifyAlmacenero,categoriaController.activate);
 router.put('/deactivate', auth.verifyAlmacenero,categoriaController.deactivate);
 
-export default router;
+module.exports = router;

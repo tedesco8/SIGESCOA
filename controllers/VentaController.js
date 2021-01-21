@@ -1,4 +1,4 @@
-import models from "../models";
+const models = require("../models");
 
 async function aumentarStock(idarticulo, cantidad) {
   let { stock } = await models.Articulo.findOne({ _id: idarticulo });
@@ -18,7 +18,7 @@ async function disminuirStock(idarticulo, cantidad) {
   );
 }
 
-export default {
+module.exports = {
   add: async (req, res, next) => {
     try {
       //registramos la venta

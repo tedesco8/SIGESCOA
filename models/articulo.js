@@ -1,4 +1,5 @@
-import mongoose, {Schema} from 'mongoose';
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const articuloSchema = new Schema({
     categoria: {type: Schema.ObjectId, ref:'categoria'},
@@ -13,4 +14,4 @@ const articuloSchema = new Schema({
 
 const Articulo = mongoose.model('articulo', articuloSchema);
 
-export default Articulo;
+module.exports = Articulo;

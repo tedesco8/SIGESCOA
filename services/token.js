@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import models from "../models";
+const jwt = require("jsonwebtoken");
+const models = require("../models");
 
 //valida que el token sea valido y si ya expiro, genera uno nuevo, de lo contrario no genera nada.
 async function checkToken(token) {
@@ -23,7 +23,7 @@ async function checkToken(token) {
   }
 }
 
-export default {
+module.exports = {
   //genera el token
   encode: async (_id, rol, email, nombre) => {
     const token = jwt.sign(
