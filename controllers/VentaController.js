@@ -22,9 +22,9 @@ module.exports = {
   add: async (req, res, next) => {
     try {
       //registramos la venta
-      const reg = await models.Venta.create(req.body);
+      const reg = await models.Venta.create(req.body.data);
       //Actualizar stock
-      let detalles = req.body.detalles;
+      let detalles = req.body.data.detalles;
       //recorremos todos los detalles
       detalles.map(function (x) {
         disminuirStock(x._id, x.cantidad);
@@ -80,7 +80,7 @@ module.exports = {
   update: async (req, res, next) => {
     try {
       const reg = await models.Venta.findByIdAndUpdate(
-        { _id: req.body._id }, req.body
+        { _id: req.body.data._id }, req.body.data
       );
       res.status(200).json(reg);
     } catch (e) {
