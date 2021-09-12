@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "tedesco_chiquis",
-    "password": "vAs_nlRtjjy4Y87y",
-    "database": "tedesco_chiquisdb",
+    "username": "tedesco_sigesco",
+    "password": "yWxi?7Jczl3rxh7Y",
+    "database": "tedesco_sigesco_db",
     "host": "54.36.121.183",
     "dialect": "mysql"
   },
@@ -14,9 +14,9 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "tedesco_chiquis",
-    "password": "vAs_nlRtjjy4Y87y",
-    "database": "tedesco_chiquisdb",
+    "username": "tedesco_sigesco",
+    "password": "yWxi?7Jczl3rxh7Y",
+    "database": "tedesco_sigesco_db",
     "host": "54.36.121.183",
     "dialect": "mysql"
   }
